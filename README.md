@@ -60,11 +60,11 @@ Foram elaborados **3 modelos dimensionais** (Star Schema):
 **Nome do banco**: `despesaspbh`
 
 **Tabelas Fato:**
-- `fato_empenho` – Registros de empenho
-- `fato_liquidacao` – Registros de liquidação
-- `fato_pagamento` – Registros de pagamento
+- `fato_despesa_empenho` – Registros de empenho
+- `fato_despesa_liquidacao` – Registros de liquidação
+- `fato_despesa_pagamento` – Registros de pagamento
 
-**Tabelas Dimensões:**
+**Principais Tabelas Dimensões:**
 - `dim_tempo` – Dimensão temporal
 - `dim_unidade_orcamentaria` – Unidades Orçamentárias (UOs)
 - `dim_credor` – Credores/Fornecedores
@@ -72,6 +72,12 @@ Foram elaborados **3 modelos dimensionais** (Star Schema):
 - `dim_modalidade_empenho` – Modalidades de empenho
 
 ---
+
+
+**Modelagem Dimensional Fato Despesa Empenho**
+
+<img width="844" height="919" alt="image" src="https://github.com/user-attachments/assets/1470d4ab-94d1-4bcc-9ac0-d17815ef35fe" />
+
 
 ## 📥 Dados
 
@@ -136,6 +142,11 @@ Foram elaborados **3 modelos dimensionais** (Star Schema):
 - Logging de execução
 - Notificação de sucesso/erro
 
+**Workflow do processo ETL integrado**
+<img width="945" height="390" alt="image" src="https://github.com/user-attachments/assets/e6e4641c-dff1-4ec4-8411-5b3a547e1b8f" />
+
+
+
 ### Expressões Regulares Utilizadas
 
 | Padrão | Descrição | Exemplo |
@@ -155,30 +166,27 @@ Foram desenvolvidos **4 painéis principais**:
 
 #### 1. **Painel Estratégico** 
 - **Visão Geral de Despesas 2021-2026**
-- KPIs: Total gasto, média anual, evolução temporal
-- Análise de tendências gerais
-- Público: Prefeito, Secretários, SMF
+
+
+<img width="930" height="522" alt="image" src="https://github.com/user-attachments/assets/963de770-3e91-4ba4-810e-cb7171844f95" />
+
 
 #### 2. **Painel Tático** 
 - **Visão Analítica das Despesas**
-- Despesas por UO (órgão)
-- Distribuição por modalidade
-- Análise comparativa entre períodos
-- Público: Gestores estratégicos
+
+
+<img width="945" height="528" alt="image" src="https://github.com/user-attachments/assets/9daeb7b4-3650-41b4-90cc-613d82cd9f0c" />
+
 
 #### 3. **Painel Operacional 1** 
 - **Análise de Despesas por UO**
-- Drill-down por Unidade Orçamentária
-- Detalhamento de gastos por secretaria
-- Evolução histórica
-- Público: Diretores de UOs
+<img width="945" height="528" alt="image" src="https://github.com/user-attachments/assets/e05d97c7-63b5-451c-953a-139e9b1b1de6" />
+
 
 #### 4. **Painel Operacional 2** 
 - **Análise por Credor**
-- Principais fornecedores/prestadores
-- Volume de transações
-- Valores pagos por credor
-- Público: Auditoria, Controle Interno
+<img width="945" height="515" alt="image" src="https://github.com/user-attachments/assets/9508577a-cbe0-4b17-8ef5-b767e8492caf" />
+
 
 ---
 
@@ -191,7 +199,9 @@ Modelo de Machine Learning que identifica padrões anormais em despesas:
 -  Possíveis irregularidades
 -  Alertas para auditoria
 
-**Técnica**: Isolation Forest / Z-Score
+**Técnica**: Isolation Forest 
+<img width="945" height="531" alt="image" src="https://github.com/user-attachments/assets/b1bbf5d6-0644-492a-a90a-ef8c06431ae0" />
+
 
 ### 2. Previsão de Despesas Futuras
 Modelo preditivo para 2026:
@@ -199,6 +209,9 @@ Modelo preditivo para 2026:
 - Tendências de despesas
 - Auxilia no planejamento orçamentário
 - Suporta decisões de alocação
+
+<img width="944" height="528" alt="image" src="https://github.com/user-attachments/assets/dfcaa3fe-2820-4c4f-b919-2a6d7109ebb3" />
+
 
 ### 🔄 Análise de Ciclo de Despesas
 - ✅ Identificação do fluxo completo de despesas (Empenho → Liquidação → Pagamento)  
@@ -241,8 +254,7 @@ Modelo preditivo para 2026:
 
 ### Sobre o Desenvolvimento
 - Migração de **Knime para Apache Hop** melhorou performance
-- Testes de inserção após carga validaram integridade
-- Machine Learning tem grande potencial para análises futures
+- Machine Learning tem grande potencial para análises futuras
 
 ### Sobre o Negócio
 - Conhecimento de despesa pública
@@ -259,19 +271,20 @@ Modelo preditivo para 2026:
 ## 🔗 Referências e Links
 
 ### Base de Dados
-- 📊 [Portal Dados Abertos - Despesas PBH](https://pbh.gov.br)
+- 📊 [Portal Dados Abertos - Despesas PBH](https://dados.pbh.gov.br/dataset/despesa-consolidada-em-tempo-real)
+- Nome do arquivo: Despesas 2021 até 2026
 
 ### Conceitos e Regulamentação
-- 📚 [Glossário - Prefeitura de BH](https://pbh.gov.br)
+- 📚 [Glossário - Prefeitura de BH](https://prefeitura.pbh.gov.br/transparencia/contas-publicas/glossario)
 - 📚 [Portal da Transparência Federal](https://portaldatransparencia.gov.br)
-- 📚 [Portal de Transparência BH](https://pbh.gov.br)
-- 📚 [Orçamento Fácil - Senado Federal](https://senado.leg.br)
+- 📚 [Portal de Transparência BH](https://prefeitura.pbh.gov.br/transparencia?form=despesas)
+- 📚 [Orçamento Fácil - Senado Federal](https://www12.senado.leg.br/orcamentofacil)
 
 ### Capacitação
-- 🎓 [Escola Virtual - Governo Federal](https://escolavirtual.gov.br)
+- 🎓 [Escola Virtual - Governo Federal](https://www.escolavirtual.gov.br/curso/115)
 
 ### Artigos Técnicos
-- 📄 [Detecção e Análise de Anomalias em Séries Temporais de Despesas Municipais](https://sbc.org.br)
+- 📄 [Detecção e Análise de Anomalias em Séries Temporais de Despesas Municipais](https://sol.sbc.org.br/index.php/wcge/article/view/36325/36112)
 
 ---
 
@@ -286,7 +299,7 @@ Modelo preditivo para 2026:
 ---
 
 ## 👤 Contato e Redes
-- 🔗 [LinkedIn](https://www.linkedin.com/in/patricia-campos-dias-1b350822/)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/patrícia-campos-dias-1b350822/)
 - 🐙 [GitHub](https://github.com/pcampodias-oss/)
 - 📧 Email: pcampodias@gmail.com
 
